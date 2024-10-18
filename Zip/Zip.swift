@@ -216,7 +216,7 @@ public class Zip {
             while filePointer != nil {
                 let readBytes = unzReadCurrentFile(zip, &buffer, bufferSize)
                 if readBytes > 0 {
-                    guard fwrite(buffer, Int(readBytes), 1, filePointer) == 1 else {
+                    guard fwrite(buffer, Int(readBytes), 1, filePointer!) == 1 else {
                         throw ZipError.unzipFail
                     }
                     writeBytes += UInt64(readBytes)
